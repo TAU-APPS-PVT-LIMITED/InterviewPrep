@@ -91,6 +91,7 @@ void generateLL(Node** head, Node** tail){
     *head = lhead;
     *tail = ltail;
 }
+
 void insertNode(Node* *head, Node* *tail,Node* node){
 //void insertNode(Node* head, Node* tail,Node &node){
     if (*head == nullptr) {
@@ -121,7 +122,7 @@ void printLL(Node *head)
     Node *curr = head;
     int i = 0;
     while (curr != nullptr) {
-        cout<<"Current node at position: " <<i<<" having data: "<<curr->data<<endl;
+        cout<<"Current node at position: " <<i<<" having data: ("<<curr->data<<" ) ->"<<endl;
         curr = curr -> next;
         i++;
     }
@@ -136,8 +137,7 @@ void deallocLL(Node** head){
         *head = curr;
         curr = (*head) -> next;
         i++;
-        free(*head);
-        //delete (Node*)*head;
+        delete *head;
         //curr = next;
 
     }
