@@ -204,29 +204,50 @@ bool LinkedList::compareDNA(LinkedList &newLL){
     bool llexists = false;
     Node *currFromNewLL = newLL.m_head;
     Node *curr = m_head;
-
     Node *from = nullptr;
-    while (currFromNewLL != nullptr) {
-        //find the first match of current node from newLL in the myLL
-        while (curr != nullptr) {
-            if (curr->dna == currFromNewLL->dna){
-                from = curr;
+    while (curr != nullptr){
+        from = curr;
+        while (currFromNewLL != nullptr){
+            if (currFromNewLL->dna == from->dna){
                 llexists = true;
+                from = from -> m_next;
+                currFromNewLL = currFromNewLL ->m_next;
+            }
+            else {
+                llexists = false;
                 break;
             }
-            else{
-                curr = curr->m_next;
-                llexists = false;
-            }
         }
-        if (from == nullptr){
-            //hence we reached the end of the myLL and not even the first element from newLL exists
-            break;
+        //if llexists == false
+        if (llexists == false){
+            curr = curr ->m_next;
+            currFromNewLL = newLL.m_head;
         } else {
-            curr = from->m_next;
-            currFromNewLL = currFromNewLL->m_next;
+            //llexists as true
+            break;
         }
     }
 
+//    while (currFromNewLL != nullptr) {
+//        //find the first match of current node from newLL in the myLL
+//        while (curr != nullptr) {
+//            if (curr->dna == currFromNewLL->dna){
+//                from = curr;
+//                llexists = true;
+//                break;
+//            }
+//            else{
+//                curr = curr->m_next;
+//                llexists = false;
+//            }
+//        }
+//        if (from == nullptr){
+//            //hence we reached the end of the myLL and not even the first element from newLL exists
+//            break;
+//        } else {
+//            curr = from->m_next;
+//            currFromNewLL = currFromNewLL->m_next;
+//        }
+//    }
     return llexists;
 }
