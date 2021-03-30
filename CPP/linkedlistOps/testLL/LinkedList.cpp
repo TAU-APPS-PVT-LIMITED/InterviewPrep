@@ -92,3 +92,38 @@ void LinkedList::DisplayEvery(int x) {
 //    cout << "END" << endl; //Indicates the end of the linked list
 }
 
+void LinkedList::reverseLL(){
+    Node *curr = m_head ->m_next;
+    Node *prev = m_head;
+    Node *next = curr->m_next;
+    
+    cout<<"At the start: curr->m_info is "<<curr->m_info<<", next->m_info is "<<next->m_info<<", prev->m_info is "<<prev->m_info<<endl;
+    while (next != nullptr) {
+        curr->m_next = prev;
+        cout<<"after curr->m_next = prev; next of curr node data is: "<<curr->m_next->m_info<<endl;
+        prev = curr;
+        cout<<"after prev = curr; prev data is: "<<prev->m_info<<endl;
+        curr = next;
+//        cout<<"after curr = next; curr node data is: "<<curr->m_info<<"and next of curr data is: "<<curr->m_next->m_info<<endl;
+        cout<<"after curr = next; curr node data is: "<<curr->m_info<<endl;
+        next = next->m_next;
+        if (next == nullptr){
+            break;
+        }
+        cout<<"after next = next->m_next; next node data is: "<<next->m_info<<endl;
+        cout<<"After reversal following is the status:"<<endl;
+        cout<<"curr->m_info is "<<curr->m_info<<", next->m_info is "<<next->m_info<<", prev->m_info is "<<prev->m_info<<endl;
+    }
+    //curr is pointing to nullptr, hence its reached tail
+    //swap head and tail
+    //at the end of the while loop, curr points to tail and prev to one behind it and next to null, hence we need to do one more iteration of swap
+    curr->m_next = prev;
+    prev = curr;
+    //at this stage prev is same as tail;
+    m_tail = m_head;
+    m_head = prev;
+    m_tail->m_next = nullptr;
+    curr = nullptr;
+    prev = nullptr;
+    next = nullptr;
+}
