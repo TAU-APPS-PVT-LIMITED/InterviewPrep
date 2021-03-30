@@ -29,7 +29,12 @@ void LinkedList::InsertFront(int data) {
     Node *temp = new Node(); //Builds a new node
     temp->m_info = data; //Set data of new node
     temp->m_next = m_head; //If list is empty, m_next = nullptr else first node
-    m_head = temp; //Points m_head at new node
+    if (m_size == 0) {
+        m_head = temp; //Points m_head at new node
+        m_tail = temp;
+    }else {
+        m_head = temp;
+    }
     m_size++; //Increments the size of the linked list
 }
 
