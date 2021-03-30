@@ -8,10 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		701EADCD261282F500302E49 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 701EADCC261282F500302E49 /* main.cpp */; };
+		705C13382612D87C00DF8C20 /* LinkedList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705C13352612D87C00DF8C20 /* LinkedList.cpp */; };
+		705C13392612D87C00DF8C20 /* lab7.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705C13372612D87C00DF8C20 /* lab7.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		701EADC7261282F500302E49 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		705C13282612D85E00DF8C20 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -25,10 +36,21 @@
 /* Begin PBXFileReference section */
 		701EADC9261282F500302E49 /* linkedlistOps */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = linkedlistOps; sourceTree = BUILT_PRODUCTS_DIR; };
 		701EADCC261282F500302E49 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		705C132A2612D85E00DF8C20 /* testLL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = testLL; sourceTree = BUILT_PRODUCTS_DIR; };
+		705C13352612D87C00DF8C20 /* LinkedList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LinkedList.cpp; sourceTree = "<group>"; };
+		705C13362612D87C00DF8C20 /* LinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedList.h; sourceTree = "<group>"; };
+		705C13372612D87C00DF8C20 /* lab7.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lab7.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		701EADC6261282F500302E49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		705C13272612D85E00DF8C20 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				701EADCB261282F500302E49 /* linkedlistOps */,
+				705C132B2612D85E00DF8C20 /* testLL */,
 				701EADCA261282F500302E49 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				701EADC9261282F500302E49 /* linkedlistOps */,
+				705C132A2612D85E00DF8C20 /* testLL */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,6 +84,16 @@
 				701EADCC261282F500302E49 /* main.cpp */,
 			);
 			path = linkedlistOps;
+			sourceTree = "<group>";
+		};
+		705C132B2612D85E00DF8C20 /* testLL */ = {
+			isa = PBXGroup;
+			children = (
+				705C13372612D87C00DF8C20 /* lab7.cpp */,
+				705C13352612D87C00DF8C20 /* LinkedList.cpp */,
+				705C13362612D87C00DF8C20 /* LinkedList.h */,
+			);
+			path = testLL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +116,23 @@
 			productReference = 701EADC9261282F500302E49 /* linkedlistOps */;
 			productType = "com.apple.product-type.tool";
 		};
+		705C13292612D85E00DF8C20 /* testLL */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 705C13302612D85E00DF8C20 /* Build configuration list for PBXNativeTarget "testLL" */;
+			buildPhases = (
+				705C13262612D85E00DF8C20 /* Sources */,
+				705C13272612D85E00DF8C20 /* Frameworks */,
+				705C13282612D85E00DF8C20 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = testLL;
+			productName = testLL;
+			productReference = 705C132A2612D85E00DF8C20 /* testLL */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -91,6 +142,9 @@
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					701EADC8261282F500302E49 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					705C13292612D85E00DF8C20 = {
 						CreatedOnToolsVersion = 12.4;
 					};
 				};
@@ -109,6 +163,7 @@
 			projectRoot = "";
 			targets = (
 				701EADC8261282F500302E49 /* linkedlistOps */,
+				705C13292612D85E00DF8C20 /* testLL */,
 			);
 		};
 /* End PBXProject section */
@@ -119,6 +174,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				701EADCD261282F500302E49 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		705C13262612D85E00DF8C20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				705C13382612D87C00DF8C20 /* LinkedList.cpp in Sources */,
+				705C13392612D87C00DF8C20 /* lab7.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +320,26 @@
 			};
 			name = Release;
 		};
+		705C132E2612D85E00DF8C20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97PM9HXX5C;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		705C132F2612D85E00DF8C20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97PM9HXX5C;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -273,6 +357,15 @@
 			buildConfigurations = (
 				701EADD1261282F500302E49 /* Debug */,
 				701EADD2261282F500302E49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		705C13302612D85E00DF8C20 /* Build configuration list for PBXNativeTarget "testLL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				705C132E2612D85E00DF8C20 /* Debug */,
+				705C132F2612D85E00DF8C20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
