@@ -104,7 +104,6 @@ void LinkedList::reverseLL(){
         prev = curr;
         cout<<"after prev = curr; prev data is: "<<prev->m_info<<endl;
         curr = next;
-//        cout<<"after curr = next; curr node data is: "<<curr->m_info<<"and next of curr data is: "<<curr->m_next->m_info<<endl;
         cout<<"after curr = next; curr node data is: "<<curr->m_info<<endl;
         next = next->m_next;
         if (next == nullptr){
