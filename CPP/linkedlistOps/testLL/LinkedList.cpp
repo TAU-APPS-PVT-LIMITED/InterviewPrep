@@ -126,3 +126,21 @@ void LinkedList::reverseLL(){
     prev = nullptr;
     next = nullptr;
 }
+
+bool LinkedList::compareLL(LinkedList newLL){
+    //check if a newLL exists in currentLinkedList
+    bool areEqual = false;
+    Node *currFromNewLL = newLL.m_head;
+    Node *curr = m_head;
+
+    while (curr != m_tail) {
+        if (curr->m_info == currFromNewLL->m_info && currFromNewLL->m_next != nullptr){
+            curr = curr->m_next;
+            currFromNewLL = currFromNewLL->m_next;
+        } else {
+            currFromNewLL = currFromNewLL->m_next;
+        }
+    }
+
+    return areEqual;
+}

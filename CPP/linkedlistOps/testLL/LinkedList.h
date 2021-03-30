@@ -25,6 +25,7 @@ public:
     void Display(); //Function that iterates over the linked list to display the contents
     void DisplayEvery(int x); //Function that displays every x nodes
     void reverseLL();
+    bool compareLL(LinkedList newLL);
 private:
     Node *m_head; //Pointer to the beginning of the linked list
     Node *m_tail; //Pointer to the end of the linked list
