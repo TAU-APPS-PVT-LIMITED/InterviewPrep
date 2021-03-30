@@ -13,6 +13,9 @@ LinkedList::LinkedList() {
 }
 
 LinkedList::~LinkedList() {
+    if (m_head->m_next == nullptr){
+        return;
+    }
     Node *curr = m_head;
     while (curr != nullptr) { //Iterates through and removes each node
         m_head = curr; //sets m_head to curr
