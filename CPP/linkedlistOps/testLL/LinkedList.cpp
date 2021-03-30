@@ -13,9 +13,6 @@ LinkedList::LinkedList() {
 }
 
 LinkedList::~LinkedList() {
-    if (m_head->m_next == nullptr){
-        return;
-    }
     Node *curr = m_head;
     while (curr != nullptr) { //Iterates through and removes each node
         m_head = curr; //sets m_head to curr
@@ -31,6 +28,15 @@ LinkedList::~LinkedList() {
 void LinkedList::InsertFront(int data) {
     Node *temp = new Node(); //Builds a new node
     temp->m_info = data; //Set data of new node
+    temp->m_next = m_head; //If list is empty, m_next = nullptr else first node
+    m_head = temp; //Points m_head at new node
+    m_size++; //Increments the size of the linked list
+}
+
+void LinkedList::InsertFront(char data) {
+    Node *temp = new Node(); //Builds a new node
+    temp->m_info = int(data); //sets the ascii value
+    temp->dna = data; //Set dna of new node
     temp->m_next = m_head; //If list is empty, m_next = nullptr else first node
     m_head = temp; //Points m_head at new node
     m_size++; //Increments the size of the linked list
@@ -54,7 +60,7 @@ void LinkedList::Display() {
     } else {
         Node *temp = m_head; //Creates a new pointer to iterate over list
         while (temp != nullptr) { //Iterates to end of list
-            cout << temp->m_info << "->"; //Outputs value in node
+            cout << temp->m_info <<":"<<temp->dna<<"->"; //Outputs value in node
             temp = temp->m_next; //Moves to m_next node
         }
         cout << "END" << endl; //Indicates the end of the linked list
@@ -130,7 +136,7 @@ void LinkedList::reverseLL(){
     next = nullptr;
 }
 
-bool LinkedList::compareLL(LinkedList newLL){
+bool LinkedList::compareLL(LinkedList &newLL){
     //check if a newLL exists in currentLinkedList
     bool llexists = false;
     Node *currFromNewLL = newLL.m_head;
@@ -149,6 +155,38 @@ bool LinkedList::compareLL(LinkedList newLL){
         //find the first match of current node from newLL in the myLL
         while (curr != nullptr) {
             if (curr->m_info == currFromNewLL->m_info){
+                from = curr;
+                llexists = true;
+                break;
+            }
+            else{
+                curr = curr->m_next;
+                llexists = false;
+            }
+        }
+        if (from == nullptr){
+            //hence we reached the end of the myLL and not even the first element from newLL exists
+            break;
+        } else {
+            curr = from->m_next;
+            currFromNewLL = currFromNewLL->m_next;
+        }
+    }
+
+    return llexists;
+}
+
+bool LinkedList::compareDNA(LinkedList &newLL){
+    //check if a newLL exists in currentLinkedList
+    bool llexists = false;
+    Node *currFromNewLL = newLL.m_head;
+    Node *curr = m_head;
+
+    Node *from = nullptr;
+    while (currFromNewLL != nullptr) {
+        //find the first match of current node from newLL in the myLL
+        while (curr != nullptr) {
+            if (curr->dna == currFromNewLL->dna){
                 from = curr;
                 llexists = true;
                 break;
