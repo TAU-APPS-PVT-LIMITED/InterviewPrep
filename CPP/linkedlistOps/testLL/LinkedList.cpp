@@ -129,18 +129,40 @@ void LinkedList::reverseLL(){
 
 bool LinkedList::compareLL(LinkedList newLL){
     //check if a newLL exists in currentLinkedList
-    bool areEqual = false;
+    bool llexists = false;
     Node *currFromNewLL = newLL.m_head;
     Node *curr = m_head;
 
-    while (curr != m_tail) {
-        if (curr->m_info == currFromNewLL->m_info && currFromNewLL->m_next != nullptr){
-            curr = curr->m_next;
-            currFromNewLL = currFromNewLL->m_next;
+//    while (curr != m_tail) {
+//        if (curr->m_info == currFromNewLL->m_info && currFromNewLL->m_next != nullptr){
+//            curr = curr->m_next;
+//            currFromNewLL = currFromNewLL->m_next;
+//        } else {
+//            currFromNewLL = currFromNewLL->m_next;
+//        }
+//    }
+    Node *from = nullptr;
+    while (currFromNewLL != nullptr) {
+        //find the first match of current node from newLL in the myLL
+        while (curr != nullptr) {
+            if (curr->m_info == currFromNewLL->m_info){
+                from = curr;
+                llexists = true;
+                break;
+            }
+            else{
+                curr = curr->m_next;
+                llexists = false;
+            }
+        }
+        if (from == nullptr){
+            //hence we reached the end of the myLL and not even the first element from newLL exists
+            break;
         } else {
+            curr = from->m_next;
             currFromNewLL = currFromNewLL->m_next;
         }
     }
 
-    return areEqual;
+    return llexists;
 }

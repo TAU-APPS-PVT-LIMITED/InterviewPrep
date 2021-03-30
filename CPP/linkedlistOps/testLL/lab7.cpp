@@ -16,10 +16,10 @@ int main () {
     myLL.Display();
     newLL.Display();
     bool areEqual = myLL.compareLL(newLL);
-    cout<<"Result of existence check of newLL in myLL: "<<(areEqual == 1 ? "Exists":"Not Exists");
+    cout<<"Result of existence check of newLL in myLL: "<<(areEqual == 1 ? "Exists":"Not Exists")<<endl;
     //myLL.DisplayEvery(10);
     myLL.reverseLL();
     myLL.Display();
-    myLL.~LinkedList(); //explicitly calling the destructor
+    //myLL.~LinkedList(); //explicitly calling the destructor
     return 0;
 }
