@@ -42,6 +42,24 @@ void LinkedList::InsertFront(char data) {
     m_size++; //Increments the size of the linked list
 }
 
+void LinkedList::InsertEnd(char data) {
+    Node *temp = new Node(); //Builds a new node
+    temp->m_info = int(data); //sets the ascii value
+    temp->dna = data; //Set dna of new node
+    if (m_size == 0) {
+        //adding the first element
+        m_head = temp;
+        m_tail = temp;
+        temp->m_next = nullptr;
+    } else {
+        //already some elements exists hence different logic
+        m_tail->m_next = temp;
+        temp->m_next = nullptr;
+        m_tail = temp;
+    }
+    m_size++;
+}
+
 void LinkedList::RemoveFront() {
     Node *curr = m_head; //Node pointer
     if (m_size == 0) { //Special case if list empty

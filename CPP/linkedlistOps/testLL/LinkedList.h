@@ -23,6 +23,7 @@ public:
     ~LinkedList(); //Destructor that cleans up linked list
     void InsertFront(int data); //Function that inserts node at front with data value
     void InsertFront(char data); //Function that inserts node at front with data value
+    void InsertEnd(char data);
     void RemoveFront(); //Function removes the first node in the list
     void Display(); //Function that iterates over the linked list to display the contents
     void DisplayEvery(int x); //Function that displays every x nodes
