@@ -33,6 +33,8 @@ int main () {
     //bool isSuspectMatched = llevidenceDNA.compareDNA(llsuspectDNA);
     bool isSuspectMatched = llsuspectDNA.compareDNA(llevidenceDNA);
     cout<<"Result of existence check of newLL in myLL: "<<(isSuspectMatched == 1 ? "Exists":"Not Exists")<<endl;
+    llsuspectDNA.reverseLL();
+    llsuspectDNA.Display();
 //    myLL.Display();
 //    newLL.Display();
 //    bool areEqual = myLL.compareLL(newLL);

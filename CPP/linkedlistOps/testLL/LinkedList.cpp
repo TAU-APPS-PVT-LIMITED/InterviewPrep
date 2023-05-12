@@ -138,12 +138,25 @@ void LinkedList::reverseLL(){
         curr = next;
         cout<<"after curr = next; curr node data is: "<<curr->m_info<<endl;
         next = next->m_next;
-        if (next == nullptr){
-            break;
+        switch (int(next == nullptr)) {
+            case 1:
+                break;
+
+            default:
+            {
+              cout<<"after next = next->m_next; next node data is: "<<next->m_info<<endl;
+              cout<<"After reversal following is the status:"<<endl;
+              cout<<"curr->m_info is "<<curr->m_info<<", next->m_info is "<<next->m_info<<", prev->m_info is "<<prev->m_info<<endl;
+              break;
+            }
+
         }
-        cout<<"after next = next->m_next; next node data is: "<<next->m_info<<endl;
-        cout<<"After reversal following is the status:"<<endl;
-        cout<<"curr->m_info is "<<curr->m_info<<", next->m_info is "<<next->m_info<<", prev->m_info is "<<prev->m_info<<endl;
+//        if (next == nullptr){
+//            break;
+//        }
+//        cout<<"after next = next->m_next; next node data is: "<<next->m_info<<endl;
+//        cout<<"After reversal following is the status:"<<endl;
+//        cout<<"curr->m_info is "<<curr->m_info<<", next->m_info is "<<next->m_info<<", prev->m_info is "<<prev->m_info<<endl;
     }
     //curr is pointing to nullptr, hence its reached tail
     //swap head and tail
@@ -164,27 +177,24 @@ bool LinkedList::compareLL(LinkedList &newLL){
     bool llexists = false;
     Node *currFromNewLL = newLL.m_head;
     Node *curr = m_head;
-
-//    while (curr != m_tail) {
-//        if (curr->m_info == currFromNewLL->m_info && currFromNewLL->m_next != nullptr){
-//            curr = curr->m_next;
-//            currFromNewLL = currFromNewLL->m_next;
-//        } else {
-//            currFromNewLL = currFromNewLL->m_next;
-//        }
-//    }
     Node *from = nullptr;
     while (currFromNewLL != nullptr) {
         //find the first match of current node from newLL in the myLL
         while (curr != nullptr) {
-            if (curr->m_info == currFromNewLL->m_info){
-                from = curr;
-                llexists = true;
-                break;
-            }
-            else{
-                curr = curr->m_next;
-                llexists = false;
+            switch (int(curr->m_info == currFromNewLL->m_info)) {
+                case 1:
+                {
+                  from = curr;
+                  llexists = true;
+                  break;
+                }
+                default:
+                {
+                  curr = curr->m_next;
+                  llexists = false;
+                  break;
+                }
+
             }
         }
         if (from == nullptr){
