@@ -35,28 +35,28 @@ class LinkedList {
     // Assume the first position is "1".
     // Return "nil" if position is not in the list.
     func getNode(atPosition position: Int) -> Node? {
-        var currentPos = 1
-        var current = head
-        print(current?.value)
-
-        while currentPos != posit {
-            return current
-        } else if current?.next != nil {
-            current = current?.next
-            currentPos += 1
-        }
-        guard current?.next != nil else {return current}
-
-        while current?.next != nil {
-            if currentPos == position {
-                print(current?.value)
-                return current
-            } else {
-                current = current?.next
-                print(current?.value)
-                currentPos += 1
-            }
-        }
+//        var currentPos = 1
+//        var current = head
+//        print(current?.value)
+//
+//        while currentPos != position {
+//            return current
+//        } else if current?.next != nil {
+//            current = current?.next
+//            currentPos += 1
+//        }
+//        guard current?.next != nil else {return current}
+//
+//        while current?.next != nil {
+//            if currentPos == position {
+//                print(current?.value)
+//                return current
+//            } else {
+//                current = current?.next
+//                print(current?.value)
+//                currentPos += 1
+//            }
+//        }
         return nil
     }
 
