@@ -8,7 +8,52 @@ import Foundation
 
 
 //Hamming Distance
-//Given integers x, y finds the positions where the corresponding bits are different.
+//Given integers x, y find the # of positions where the corresponding bits are different.
+
+  //default brute force approach
+func hammingDistance_1(n1:Int, n2:Int) -> Int{
+  var count = 0
+  //mandatory go through all 32 bits
+  for i in 0...31{
+    if ((n1 >> i) ^ (n2  >> i) == 1){
+      count += 1
+    }
+  }
+  return count
+}
+
+print("Hamming distance between 15 & 11 :\(hammingDistance_1(n1: 15, n2: 11))")
+
+//approach 2
+func hammingDistance_2(n1:Int, n2:Int) -> Int{
+  var count = 0
+  var xor = n1 ^ n2
+  
+  while (xor ^ 0 != 0){
+    //following logic : % 2 will give either 1 or 0, which would be the LSB, implying the LSB which is the XOR of n1 & n2 had differing bits
+    if (xor % 2  == 1){
+      count += 1 //increment count
+    }
+    xor >>= 1 //right shift by 1, divide by 2.
+  }
+  return count
+}
+
+print("Hamming distance between 15 & 11 :\(hammingDistance_2(n1: 15, n2: 11))")
+
+//Brian Kernighan algo implementation
+func hammingDistance_3(n1:Int, n2:Int) -> Int{
+  var count = 0
+  var xor = n1 ^ n2 //all differing bits would generate 1
+
+  while (xor != 0){
+    count += 1
+    xor &= (xor - 1)
+  }
+  return count
+}
+
+print("Hamming distance between 15 & 11 :\(hammingDistance_3(n1: 15, n2: 11))")
 
 
   //We need to write a program to detect if two input integers have opposite signs.
