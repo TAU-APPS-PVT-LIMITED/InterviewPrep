@@ -5,6 +5,45 @@ import Foundation
 //Design Gurus
 //Grokking Algos and DS
 
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ A bike rider is going on a ride. The road contains n + 1 points at different altitudes. The rider starts from point 0 at an altitude of 0.
+
+ Given an array of integers gain of length n, where gain[i] represents the net gain in altitude between points i and i + 1 for all (0 <= i < n), return the highest altitude of a point.
+ Examples
+
+ Example 1
+
+ Input: gain = [-5, 1, 5, 0, -7]
+ Expected Output: 1
+ Justification: The altitude changes are [-5, -4, 1, 1, -6], where 1 is the highest altitude reached.
+ Example 2
+
+ Input: gain = [4, -3, 2, -1, -2]
+ Expected Output: 4
+ Justification: The altitude changes are [4, 1, 3, 2, 0], where 4 is the highest altitude reached.
+ Example 3
+
+ Input: gain = [2, 2, -3, -1, 2, 1, -5]
+ Expected Output: 4
+ Justification: The altitude changes are [2, 4, 1, 0, 2, 3, -2], where 4 is the highest altitude reached.
+ Constraints:
+
+ n == gain.length
+ 1 <= n <= 100
+ -100 <= gain[i] <= 100
+
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Given an input array of integers nums, find an integer array, let's call it differenceArray, of the same length as an input integer array.
+ Each element of differenceArray, i.e., differenceArray[i], should be calculated as follows: take the sum of all elements to the left of index i in array nums (denoted as leftSum[i]), and subtract it from the sum of all elements to the right of index i in array nums (denoted as rightSum[i]), taking the absolute value of the result. Formally:
+ differenceArray[i] = | leftSum[i] - rightSum[i] |
+ If there are no elements to the left/right of i, the corresponding sum should be taken as 0.
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  Given a one-dimensional array of integers, create a new array that represents the running sum of the original array.
 
