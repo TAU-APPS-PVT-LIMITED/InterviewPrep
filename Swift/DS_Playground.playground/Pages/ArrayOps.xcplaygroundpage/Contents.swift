@@ -79,4 +79,25 @@ print("Checking duplicates in [1,2,3,4]:\(containsDuplicates_1(inArr:[1,2,3,4]))
 print("Checking duplicates in [1,2,3,4,1]:\(containsDuplicates_1(inArr:[1,2,3,4,1]))")
 print("Checking duplicates in [1,1,3,4,1]:\(containsDuplicates_1(inArr:[1,1,3,4,1]))")
 
+func containsDuplicates_2(inArr arr:[Int])->Bool{
+  //sort and single pass
+  let tmp = arr.lazy.sorted() //O(nlogn)
+
+  for i in 0..<tmp.count{
+    if i+1 < tmp.count{
+      if tmp[i] == tmp[i+1]{
+        return true
+      }
+    }else {
+      return false
+    }
+  }
+  return false
+}
+
+print("Checking duplicates in [1,2,3,4]:\(containsDuplicates_2(inArr:[1,2,3,4]))")
+print("Checking duplicates in [1,2,3,4,1]:\(containsDuplicates_2(inArr:[1,2,3,4,1]))")
+print("Checking duplicates in [1,1,3,4,1]:\(containsDuplicates_2(inArr:[1,1,3,4,1]))")
+
+
 //: [Next](@next)
