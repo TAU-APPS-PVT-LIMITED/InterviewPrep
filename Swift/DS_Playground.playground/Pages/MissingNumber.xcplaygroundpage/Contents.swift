@@ -1,3 +1,5 @@
+//: [Previous](@previous)
+
 import Cocoa
 
   //Educative IO
