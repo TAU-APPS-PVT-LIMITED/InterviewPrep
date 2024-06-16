@@ -8,5 +8,6 @@
         <page name='ArrayOps'/>
         <page name='MatrixOps'/>
         <page name='LinkedListCodePractice'/>
+        <page name='IK-Probs'/>
     </pages>
 </playground>
