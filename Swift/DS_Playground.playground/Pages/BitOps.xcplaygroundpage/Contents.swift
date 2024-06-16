@@ -83,13 +83,21 @@ print(subsetsOf(arr: arr))
 
 func getFirstSetBitPos(ofNum num:Int) ->Int {
   var pos = 1
-  var tmp = num
-  while (tmp != 0){
-    if (tmp & 1  == 1){
-      return pos
-    }else {
-      tmp >>= 1
+//  var tmp = num
+//  while (tmp != 0){
+//    if (tmp & 1  == 1){
+//      return pos
+//    }else {
+//      tmp >>= 1
+//      pos += 1
+//    }
+//  }
+  //alternatively
+  while (true){
+    if (((num >> (pos - 1 )) & 1) == 0){
       pos += 1
+    }else {
+      return pos
     }
   }
   return -1
