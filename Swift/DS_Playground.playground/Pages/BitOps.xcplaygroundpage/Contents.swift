@@ -53,4 +53,27 @@ func isBitSet(forNum n: Int, atPos k:Int) -> Bool{
 }
 
 print("Bit 4 on num 8 is Set?:\(isBitSet(forNum: 8, atPos: 4))")
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Find all possible subsets of a given input (array).
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+func subsetsOf(arr:[Int]) ->[[Int]]{
+  var result = [[Int]]()
+  let counter = (1 << arr.count) - 1 //this expresion is pow(2, n) - 1
+  for i in 0...counter { //generate all possible subsets
+    var tmp = [Int]()
+    for j in 0..<arr.count{ //array len
+      if ((i & (1 << j)) != 0){
+        tmp.append(arr[j])
+      }
+    }
+    result.append(tmp)
+  }
+return result
+}
+
+let arr = [1,2,3]
+print("Subsets are:")
+print(subsetsOf(arr: arr))
 //: [Next](@next)
