@@ -34,4 +34,24 @@ func runningSum2(forArr arr:Array<Int>) -> Array<Int>{
 }
 
 print("running sum is \(runningSum2(forArr:arr))")
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+func containsDuplicates(inArr arr:[Int])->Bool{
+
+    //dictionary approach
+  var dict = [Int:Int]()
+  var count = 0
+  for val in arr{
+    dict[val, default:0] += 1
+    if dict[val]! > 1{
+      return true
+    }
+  }
+  return false
+}
+
+print("Checking duplicates in [1,2,3,4]:\(containsDuplicates(inArr:[1,2,3,4]))")
+print("Checking duplicates in [1,2,3,4,1]:\(containsDuplicates(inArr:[1,2,3,4,1]))")
 //: [Next](@next)
