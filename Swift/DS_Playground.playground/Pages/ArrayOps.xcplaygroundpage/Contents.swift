@@ -23,4 +23,15 @@ func runningSum(forArr arr:Array<Int>) -> Array<Int>{
 
 let arr = [1,1,1,1,1,1,1,1,1,1]
 print("running sum is \(runningSum(forArr:arr))")
+
+  //optimized solution
+func runningSum2(forArr arr:Array<Int>) -> Array<Int>{
+  var result = arr
+  for i in 1..<arr.count{
+    result[i] = result[i-1] + arr[i]
+  }
+  return result
+}
+
+print("running sum is \(runningSum2(forArr:arr))")
 //: [Next](@next)
