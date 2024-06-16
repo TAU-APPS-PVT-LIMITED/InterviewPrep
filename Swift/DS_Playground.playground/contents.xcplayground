@@ -6,6 +6,7 @@
         <page name='XorBitOps'/>
         <page name='MissingNumber'/>
         <page name='ArrayOps'/>
+        <page name='MatrixOps'/>
         <page name='LinkedListCodePractice'/>
     </pages>
 </playground>
