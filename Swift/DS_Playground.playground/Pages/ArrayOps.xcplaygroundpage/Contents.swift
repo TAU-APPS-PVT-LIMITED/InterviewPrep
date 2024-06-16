@@ -44,10 +44,12 @@ func containsDuplicates(inArr arr:[Int])->Bool{
   var dict = [Int:Int]()
   var count = 0
   for val in arr{
+    //approach1
 //    dict[val, default:0] += 1
 //    if dict[val]! > 1{
 //      return true
 //    }
+    //approach 2
     if ((dict[val, default: 0] ^ val) == 0){
       return true
     }else {
@@ -56,8 +58,25 @@ func containsDuplicates(inArr arr:[Int])->Bool{
   }
   return false
 }
-
 print("Checking duplicates in [1,2,3,4]:\(containsDuplicates(inArr:[1,2,3,4]))")
 print("Checking duplicates in [1,2,3,4,1]:\(containsDuplicates(inArr:[1,2,3,4,1]))")
 print("Checking duplicates in [1,1,3,4,1]:\(containsDuplicates(inArr:[1,1,3,4,1]))")
+
+func containsDuplicates_1(inArr arr:[Int])->Bool{
+  //set approach
+  var dupSet = Set<Int>()
+  for val in arr{
+    if dupSet.contains(val){
+      return true
+    }else{
+      dupSet.insert(val)
+    }
+  }
+  return false
+}
+
+print("Checking duplicates in [1,2,3,4]:\(containsDuplicates_1(inArr:[1,2,3,4]))")
+print("Checking duplicates in [1,2,3,4,1]:\(containsDuplicates_1(inArr:[1,2,3,4,1]))")
+print("Checking duplicates in [1,1,3,4,1]:\(containsDuplicates_1(inArr:[1,1,3,4,1]))")
+
 //: [Next](@next)
