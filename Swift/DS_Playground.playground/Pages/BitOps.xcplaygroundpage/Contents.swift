@@ -49,7 +49,7 @@ func isBitSet(forNum n: Int, atPos k:Int) -> Bool{
   print("n >> k:\(n>>k)")
   //return ((n >> (k-1)) & 1) == 1
   //return ((n >> (k-1)) ^ 0) == 1
-  return ((1 << (k-1)) & n) != 0
+  return ((1 << (k-1)) & n) != 0 //better solution than above as shifting 1 against n is less expensive
 }
 
 print("Bit 4 on num 8 is Set?:\(isBitSet(forNum: 8, atPos: 4))")
