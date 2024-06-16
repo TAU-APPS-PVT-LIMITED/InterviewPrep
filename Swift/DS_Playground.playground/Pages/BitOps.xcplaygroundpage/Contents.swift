@@ -76,4 +76,24 @@ return result
 let arr = [1,2,3]
 print("Subsets are:")
 print(subsetsOf(arr: arr))
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Given an input number, find the first set-bit position of the number.
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+func getFirstSetBitPos(ofNum num:Int) ->Int {
+  var pos = 1
+  var tmp = num
+  while (tmp != 0){
+    if (tmp & 1  == 1){
+      return pos
+    }else {
+      tmp >>= 1
+      pos += 1
+    }
+  }
+  return -1
+}
+print("First set bit of 16 is at pos:\(getFirstSetBitPos(ofNum: 16))")
+
 //: [Next](@next)
