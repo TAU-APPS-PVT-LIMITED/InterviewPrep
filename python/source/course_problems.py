@@ -56,17 +56,38 @@ def asteriks_hollow_square():
 
 def nearest_power_of_2():
     num = int(input("Please input desired number: "))
-    last_diff = num - 2  # 2 ** 1
-    pwr = 1
-    i = 2
-    while 1:
-        current_diff = num - (2 ** i)
-        if current_diff < 0:
-            pwr = i
-            break
-        elif current_diff > 0 and last_diff < current_diff:
-            pwr
+    # get the msb
+    n = num
+    bit_count = 0
+    while n != 0:
+        # msb = n & 1
+        n = n >> 1
+        bit_count += 1
+    p1 = 2 ** bit_count
+    p2 = 2 ** (bit_count - 1)
+    diff1 = p1 - num
+    diff2 = num - p2
+    if diff1 > diff2:
+        pwr = p2
+    elif diff1 == diff2:
+        if p1 > p2:
+            pwr = p2
+        else:
+            pwr = p1
+    else:
+        pwr = p1
 
+    print("nearest power of 2 for number n is {}".format(pwr))
+    # last_diff = num - 2  # 2 ** 1
+    # pwr = 1
+    # i = 2
+    # while 1:
+    #     current_diff = num - (2 ** i)
+    #     if current_diff < 0:
+    #         pwr = i
+    #         break
+    #     elif current_diff > 0 and last_diff < current_diff:
+    #         pwr
 
 
 # # Assume that the variable test_value is already defined.
@@ -92,3 +113,31 @@ def nearest_power_of_2():
 # if diff2 >= diff1:
 #     pwr = lastpower
 # print("The",pwr,"is the power of 2 nearest to", num)
+
+
+def check_msb_set_unset():
+    num = int(input("Please input desired number: "))
+    # print(hex(13))
+    # count = 63
+    # print(bin(num & 0xffffffff))
+    # # print(bin(num | 0xffffffff))
+    # print(bin(0xffffffff))
+    # # msb = bin((num ^ 0xffffffff))
+    n = num
+    count = 0
+    msb = 0
+    while n != 0:
+        msb = n & 1
+        print(msb)
+        n = n >> 1
+        count += 1
+    print("Total bit count: {}, msb: {}".format(count, msb))
+
+    # for i in range(1, 65):
+    #
+    #     print(bin(msb))
+    #     if (msb & 1) == 1:
+    #         print("MSB is set at position: ", count)
+    #         break
+    #     else:
+    #         count -= 1

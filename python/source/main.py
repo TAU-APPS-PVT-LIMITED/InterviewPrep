@@ -11,7 +11,9 @@ def main():
     cp.ordered_pairs()
     # cp.square_from_asteriks()
     # cp.asteriks_right_triangle()
-    cp.asteriks_hollow_square()
+    # cp.asteriks_hollow_square()
+    cp.nearest_power_of_2()
+    cp.check_msb_set_unset()
 
 
 if __name__ == '__main__':
