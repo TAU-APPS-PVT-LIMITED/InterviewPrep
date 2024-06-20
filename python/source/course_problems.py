@@ -18,8 +18,8 @@ def ordered_pairs():
 def square_from_asteriks():
     num = int(input("Please input the number for square of asteriks: "))
     for i in range(0, num):
-        for i in range(0, num):
-            print("*",sep='',end='')
+        for j in range(0, num):
+            print("*", sep='', end='')
         print("")
 
 # Write a program that shows a right triangle built with asterisks. The side length of the right
@@ -98,20 +98,20 @@ def nearest_power_of_2():
 # # You may start your code from here onwards.
 # # i = 0
 # pwr = 2 ** i # Calculating power before while loop
-# lastpower = 0
+# last_power = 0
 #
 # while(pwr < num):# Checking the power should be less than the num
-#     lastpower = pwr # Assigning last power
+#     last_power = pwr # Assigning last power
 #     pwr = 2 ** i # Calculating next power
 #     i+=1
 #
 # # Checking difference between the num and the both powers
-# diff1 = num - lastpower
+# diff1 = num - last_power
 # diff2 = pwr - num
 # #If the difference between power and number is greater than or equal to
-# #the difference between last power and the number then store lastpower in pwr.
+# #the difference between last power and the number then store last_power in pwr.
 # if diff2 >= diff1:
-#     pwr = lastpower
+#     pwr = last_power
 # print("The",pwr,"is the power of 2 nearest to", num)
 
 
