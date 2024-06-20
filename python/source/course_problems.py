@@ -50,3 +50,45 @@ def asteriks_hollow_square():
                 else:
                     print(' ', end='')
         print('')
+
+
+# WAP to find the nearest power of 2 for a given number
+
+def nearest_power_of_2():
+    num = int(input("Please input desired number: "))
+    last_diff = num - 2  # 2 ** 1
+    pwr = 1
+    i = 2
+    while 1:
+        current_diff = num - (2 ** i)
+        if current_diff < 0:
+            pwr = i
+            break
+        elif current_diff > 0 and last_diff < current_diff:
+            pwr
+
+
+
+# # Assume that the variable test_value is already defined.
+# # num = test_value # The variable test_value contains the value to be tested.
+# # pwr = 0 # The variable to store the result calculated with the help of num.
+# # You are required to calculate the value of pwr as
+# # the power of 2 nearest to the num.
+# # You may start your code from here onwards.
+# # i = 0
+# pwr = 2 ** i # Calculating power before while loop
+# lastpower = 0
+#
+# while(pwr < num):# Checking the power should be less than the num
+#     lastpower = pwr # Assigning last power
+#     pwr = 2 ** i # Calculating next power
+#     i+=1
+#
+# # Checking difference between the num and the both powers
+# diff1 = num - lastpower
+# diff2 = pwr - num
+# #If the difference between power and number is greater than or equal to
+# #the difference between last power and the number then store lastpower in pwr.
+# if diff2 >= diff1:
+#     pwr = lastpower
+# print("The",pwr,"is the power of 2 nearest to", num)
