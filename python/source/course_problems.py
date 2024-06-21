@@ -1,8 +1,7 @@
-# All the problems from the content on educative.io, crash course in python programming language
+# course: educative.io
 
-#
 # Write a program to print ordered pairs of x,y with x:range(1,6) and y: range(1,6)
-#
+
 
 def ordered_pairs():
     print("Following is the list of ordered pairs")

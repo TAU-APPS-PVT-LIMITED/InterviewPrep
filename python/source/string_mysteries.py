@@ -1,4 +1,5 @@
 # mysteries of string handling in python
+# course: educative.io
 
 def string_chars_ops():
     s = "Gaurav Gupta"
