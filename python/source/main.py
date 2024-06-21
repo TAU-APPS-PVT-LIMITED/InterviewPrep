@@ -4,6 +4,7 @@ import operators_example as op
 import bit_manipulations as bimap
 import course_problems as cp
 from string_mysteries import string_chars_ops
+from list_mysteries import  list_ops
 
 # operators_example is a file and is present in the same folder as main.py.
 # sources folder 
@@ -18,7 +19,8 @@ def main():
     # cp.asteriks_hollow_square()
     # cp.nearest_power_of_2()
     # cp.check_msb_set_unset()
-    string_chars_ops()
+    #string_chars_ops()
+    list_ops()
 
 
 if __name__ == '__main__':
