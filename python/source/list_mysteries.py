@@ -23,3 +23,62 @@ def list_ops():
     l.reverse()
     print('reversing a list using reverse():l.reverse() which is in-place and persists{}'.format(l))
 
+
+# WAP for following:
+# palindrome, sort, reverse, fibonacci, matrix multiplication, matrix diagonal sum
+# show a 2D array in matrix form, calculate sum of per column,
+# in-built function: reversed(), sorted(), hex(), bin()
+# isalpha,isalnum, isupper, islower, isdigit, isspace
+
+def list_methods_value_ops():
+    a = [1, 2, 3]
+    b = [8, 9]
+    print("List a:", a)
+    print("List b:", b)
+
+    print("\nAppending 4 in list a")
+    a.append(4)  # Appending 4 in list a
+    print("List a:", a)
+
+    print("\nAppending complete list b as sublist in a ")
+    a.append(b)  # Appending complete list b as sublist in a
+    print("List a:", a)
+    print("List b:", b)
+
+    print("\nCreating a new copy of list b in list c")
+    c = b.copy()  # Creating a new copy of list b in list c
+    print("List b:", b)
+    print("List c:", c)
+
+    print("\n Referencing: list d is an other name of list b")
+    d = b  # Referencing: list d is an other name of list b
+    print("List d:", d)
+
+    print("\n Appends all members of b to list c")
+    c.extend(b)  # Appends all members of b to list c
+    print("List c:", c)
+
+    print("\nInserting 15 at index 1 in list b")
+    b.insert(1, 15)  # Inserting 15 at index 1 in list b
+    print("List b:", b)
+    print("List d:", d)
+
+    d = [1, 2, 3, 4, 5, 6]
+    print("list d:", d)
+    print("\nRemoving value at index 1 from list d using pop() function")
+    d.pop(1)  # Removing value at index 1 from list d using pop() function
+    print(d)
+
+    print("\nRemoving the value 3 from list d using remove() function")
+    d.remove(3)  # Removing the value 3 from list d using remove() function
+    print(d)
+
+    print("\nRemoving all values list d using clear() function")
+
+    d.clear()  # Removing all values list d using clear() function
+    print(d)
+
+    e = [1, 1, 3, 40, 4, 4, 4, 5]
+    print('The original list:', e)
+    print("The number of 1s in the list:", e.count(1))
+    print('The index of 40 in the list:', e.index(40))
