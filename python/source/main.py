@@ -5,6 +5,7 @@ import bit_manipulations as bimap
 import course_problems as cp
 from string_mysteries import string_chars_ops
 from list_mysteries import  *
+from algorithms_revision import *
 
 # operators_example is a file and is present in the same folder as main.py.
 # sources folder 
@@ -21,7 +22,11 @@ def main():
     # cp.check_msb_set_unset()
     # string_chars_ops()
     # list_ops()
-    list_methods_value_ops()
+    # list_methods_value_ops()
+    l = [2,4,5,6,8,10,44,66,88]
+    n = 6
+    print(binary_search(l,n))
+    print(binary_search(l,99))
 
 
 if __name__ == '__main__':
