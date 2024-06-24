@@ -1,13 +1,20 @@
 //: [Previous](@previous)
 
+protocol NodeGenerator{
+  associatedtype T where T:Comparable
+  var value:T {get set}
+  var next:(any NodeGenerator)? {get set}
+  init(value:T, next:(any NodeGenerator)?)
+}
 
-class Node {
-    var value: Int
-    var next: Node?
-
-    init(value: Int) {
-        self.value = value
-    }
+class Node:NodeGenerator{
+  typealias T = Int
+  var value: Int
+  var next: NodeGenerator?
+  required init(value: Int, next: NodeGenerator? = nil) {
+    self.value = value
+    self.next = next
+  }
 }
 
 class LinkedList {
