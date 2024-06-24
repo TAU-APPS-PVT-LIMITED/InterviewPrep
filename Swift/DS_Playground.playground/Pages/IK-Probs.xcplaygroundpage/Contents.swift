@@ -1,5 +1,6 @@
 //: [Previous](@previous)
 
+
 import Foundation
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -13,9 +14,9 @@ func segregate_evens_and_odds(numbers: [Int]) -> [Int] {
   var tmp = numbers
   for i in 0..<numbers.count{
     var j = numbers.count - 1 - i
-    if ((tmp[i] & 1) == 1)
+    if ((tmp[i] & 1) == 1){
+    }
   }
-
   return []
 }
 
@@ -37,7 +38,6 @@ func dutch_flag_sort(balls: inout [Character]) -> [Character] {
   let t = balls.count - 1
   var back = t - front
   while (front < back){
-    if balls[front] == 
   }
   return []
 }
