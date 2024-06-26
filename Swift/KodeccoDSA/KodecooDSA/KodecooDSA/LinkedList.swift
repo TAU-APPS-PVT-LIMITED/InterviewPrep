@@ -84,9 +84,9 @@ extension IntLL {
       while (currentNode.next != tail.next){
         currentNode = currentNode.next
       }
-      self.tail.next = currentNode
-      let v = currentNode.next.value
-      self.tail.next.next  = nil
+      let v = currentNode.next.value //get the value to return
+      currentNode.next = nil //
+      self.tail.next = currentNode //set the tail.next = currentNode,
       return v
     }
   }
@@ -97,13 +97,24 @@ extension IntLL {
       return
     }
     var currentNode = self.head.next!
-    print("head-->",terminator: "")
+    var i = 0
     while (currentNode.next != nil){
       print("\(currentNode.value)-->", terminator: "")
       currentNode = currentNode.next
+      i+=1
     }
       //currently last element needs to be printed as nill check prevents it
-      //#4 consideration, print tail element
-    print("\(self.tail.next.value)-->tail")
+    print("\(currentNode.value)")
+    i+=1
+    var s = "↑"
+    var s1 = "h"
+    for j in 0...4*i - 6{
+      s.append(" ")
+      s1.append(" ")
+    }
+    s.append("↑")
+    s1.append("t")
+    print(s)
+    print(s1)
   }
 }
