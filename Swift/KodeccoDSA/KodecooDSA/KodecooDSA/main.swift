@@ -11,12 +11,15 @@ import Foundation
 var ll = IntLL() //head and tail are nil
 
 ll.push(value: 4)
+print("Popping from ll: \(ll.pop()!)")
+ll.describe()
+
 ll.push(value: 5)
 ll.push(value: 6)
 ll.push(value: 7)
 ll.push(value: 8)
 
 ll.describe()
-
-
+print("Popping from ll: \(ll.pop()!)")
+ll.describe()
 

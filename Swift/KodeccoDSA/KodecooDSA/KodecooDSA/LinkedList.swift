@@ -30,39 +30,34 @@ struct IntLL{
   var tail:IntNode!
 
   init() {
-      //    self.head = nil
-      //    self.tail = nil
-      //    self.head.next = self.tail
-    /*
-     error: Unexpectedly found nil while implicitly unwrapping an Optional value
-     cause: self.head.next = self.tail
-     now to fix the error, one would need to allocate memory for head node, call in init method. This would cause additional
-     memory allocation, which is not a desirable approach.
-     */
-    self.head = self.tail // using this, self.head.next == self.tail fails as next of head is not tail anymore
+    self.tail = .init(value:.zero)
+    self.head = .init(value: .zero, next: self.tail)
   }
 
   var isEmpty:Bool {
-    self.head == self.tail
+    self.head.next == self.tail
   }
 }
 
 extension IntLL {
   mutating func push(value val:Int){
-      /*
-       push is always inserting in the front, which is the head portion.
-       generate a node, and point to next node of current head node
-       var n = IntNode(value: val, next:self.head.next)
-       update head.next to newly created node
-       self.head.next = n
-       */
-    print("value to push: \(val)")
-    //combining the above 2 in 1 statement
-    self.head.next = IntNode(value: val, next:self.head.next)
-    //above statement takes care of empty list as node is inserted right between, head and tail with node.next = tail
+    /*
+     push is always inserting in the front, which is the head portion.
+     generate a node, and point to current head node
+     update head.next to newly created node
+     update tail
+     */
+    if !self.isEmpty{
+      self.head.next = .init(value: val, next: self.head.next)
+    }else {
+        //#4 design implementation
+      self.head.next = .init(value: val)
+      self.tail.next = self.head.next
+    }
   }
 
-  mutating func pop(){
+  @discardableResult
+  mutating func pop() -> Int!{
     /**
      pop fom the last, which is last node before the tail
      h-->1-->2-->3-->4-->tail
@@ -74,59 +69,41 @@ extension IntLL {
      2. set its next node as tail
      return popped value
      */
-
-    var next = self.head.next
-    while (next?.next.next != tail){
-      next = next?.next
+    guard !self.isEmpty else{
+      print("Nothing to pop, list is empty")
+      return nil
     }
-    print("value to be popped: \(next?.next.value)")
-    next?.next = self.tail
+    var currentNode = self.head.next!
+    //#4: keep moving till current node is same as next of tail.
+    //handling single node
+    if tail.next == currentNode {
+      self.head.next = self.tail
+      self.tail.next = nil //very very important step.
+      return currentNode.value
+    }else {
+      while (currentNode.next != tail.next){
+        currentNode = currentNode.next
+      }
+      self.tail.next = currentNode
+      let v = currentNode.next.value
+      self.tail.next.next  = nil
+      return v
+    }
   }
 
   func describe(){
-    var t = self.head.next
-    print("head -->",terminator: "")
-    while (t?.next != self.tail){
-      print("\(String(describing: t?.value))-->", terminator: "")
-      t = t?.next
+    guard !self.isEmpty else{
+      print("head-->tail")
+      return
     }
-    print("-->tail",terminator: "")
+    var currentNode = self.head.next!
+    print("head-->",terminator: "")
+    while (currentNode.next != nil){
+      print("\(currentNode.value)-->", terminator: "")
+      currentNode = currentNode.next
+    }
+      //currently last element needs to be printed as nill check prevents it
+      //#4 consideration, print tail element
+    print("\(self.tail.next.value)-->tail")
   }
 }
-
-  //struct LL{
-  //  var head:iNode!
-  //  var tail:iNode!
-  //
-  //  init(){
-  //    head.value = Int.min
-  //    tail.value = Int.min
-  //    tail.next = nil
-  //    head.next = tail
-  //  }
-  //
-  //  var isEmpty:Bool{
-  //    head.next == nil
-  //  }
-  //
-  //  //inserts node in last
-  //  mutating func append(node n:iNode){
-  //    //if first node
-  //    if self.isEmpty{
-  //      head.next = n
-  //      n.next = tail
-  //    }else {
-  //      //tmp points to node just before tail
-  //      var tmp = head.next
-  //      while tmp?.next != tail{ //Operator function '!=' requires that 'Node<Int>' conform to 'Equatable'
-  //        tmp = tmp?.next
-  //      }
-  //    }
-  //  }
-  //}
-
-
-/**
- Changing the Node to one without
- Cause: Operator function '!=' requires that 'Node<Int>' conform to 'Equatable'
- */
