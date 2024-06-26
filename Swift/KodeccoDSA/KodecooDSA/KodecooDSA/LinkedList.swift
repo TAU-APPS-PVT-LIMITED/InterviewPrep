@@ -97,24 +97,21 @@ extension IntLL {
       return
     }
     var currentNode = self.head.next!
-    var i = 0
+    var llstring = "head-->"
     while (currentNode.next != nil){
-      print("\(currentNode.value)-->", terminator: "")
+      llstring.append("\(currentNode.value)-->")
       currentNode = currentNode.next
-      i+=1
     }
       //currently last element needs to be printed as nill check prevents it
-    print("\(currentNode.value)")
-    i+=1
-    var s = "↑"
-    var s1 = "h"
-    for j in 0...4*i - 6{
-      s.append(" ")
-      s1.append(" ")
-    }
-    s.append("↑")
-    s1.append("t")
-    print(s)
-    print(s1)
+    llstring.append("\(currentNode.value)-->tail")
+    print(llstring)
+//    var helper = "↑"
+//    helper.append(String(repeating: " ", count: llstring.count - 2))
+//    helper.append("↑")
+//    print(helper)
+//    helper = "H"
+//    helper.append(String(repeating: "_", count: llstring.count - 1))
+//    helper.append("T")
+//    print(helper)
   }
 }
