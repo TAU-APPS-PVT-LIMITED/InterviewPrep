@@ -28,6 +28,21 @@ class iNode:Node<Int>{
 
 extension iNode: Equatable {
   static func == (lhs: iNode, rhs: iNode) -> Bool {
-    lhs.value == rhs.value
+    rhs === lhs
+  }
+}
+
+class IntNode{
+  var value: Int = .zero
+  var next: IntNode!
+  init(value: Int, next: IntNode! = nil) {
+    self.value = value
+    self.next = next
+  }
+}
+
+extension IntNode: Equatable {
+  static func == (lhs: IntNode, rhs: IntNode) -> Bool {
+    rhs === lhs
   }
 }

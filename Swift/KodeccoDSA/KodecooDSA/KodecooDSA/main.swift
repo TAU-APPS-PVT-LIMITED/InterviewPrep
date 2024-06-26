@@ -7,5 +7,16 @@
 
 import Foundation
 
-print("Hello, World!")
+//linked list init
+var ll = IntLL() //head and tail are nil
+
+ll.push(value: 4)
+ll.push(value: 5)
+ll.push(value: 6)
+ll.push(value: 7)
+ll.push(value: 8)
+
+ll.describe()
+
+
 
