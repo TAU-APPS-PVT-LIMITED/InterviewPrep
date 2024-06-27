@@ -47,13 +47,41 @@ extension IntLL {
      update head.next to newly created node
      update tail
      */
-    if !self.isEmpty{
-      self.head.next = .init(value: val, next: self.head.next)
-    }else {
-        //#4 design implementation
+    guard !self.isEmpty else {
+        //#4
       self.head.next = .init(value: val)
       self.tail.next = self.head.next
+      return
     }
+    self.head.next = .init(value: val, next: self.head.next)
+  }
+
+  mutating func append(value val:Int){
+    //appending the value is inserting a node in last
+    guard !self.isEmpty else {
+      self.push(value: val)
+      return
+    }
+      //#4
+    self.tail.next.next = .init(value: val)
+    self.tail.next = self.tail.next.next
+  }
+
+  mutating func insert(value val:Int, at pos:Int){
+    guard !self.isEmpty  || pos <= 0 else {
+      self.push(value: val)
+      return
+    }
+
+    var cntr = 1
+    var currNode = self.head.next! //#4
+    while cntr < pos {
+      currNode = currNode.next
+      cntr += 1
+    }
+    //we r at the node whose next is new node
+    let n = IntNode(value: val, next:currNode.next)
+    currNode.next = n
   }
 
   @discardableResult
